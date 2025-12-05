@@ -11,18 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout to branches
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        name: Checkout to branches
       - name: Setup Node
         uses: actions/setup-node@v3
       - run: npm ci
       - run: npm test
-
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Setup Node
-        uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm build
+      - run: npm run build
